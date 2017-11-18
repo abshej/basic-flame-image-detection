@@ -41,22 +41,20 @@ bit_mask_hsv = cv2.bitwise_and(frame,frame, mask= thres_mask)
 bit_mask_hsvnrgb = cv2.bitwise_or(thres_mask, thres_mask_red)
 bit_mask_three = cv2.bitwise_and(bit_mask_hsvnrgb, thres_mask_y)
 
+#decision making regarding detection
+n = cv2.countNonZero(bit_mask_three)
+c = 0
+if float(n)/float(frame.size) > 0.0005: #need to change
+   c = 1
+
 plt.subplot(121), plt.imshow(frame)
 plt.title('frame'), plt.xticks([]), plt.yticks([])
 plt.subplot(122),plt.imshow(bit_mask_three)
 plt.title('res_mix'), plt.xticks([]), plt.yticks([])
+if c==1:
+    plt.figtext(.02, .02, "FLAME DETECTED\n", style='italic', bbox={'facecolor':'red', 'alpha':0.5, 'pad':10})
+else:
+    plt.figtext(.02, .02, "FLAME NOT DETECTED\n", style='italic', bbox={'facecolor':'green', 'alpha':0.5, 'pad':10})
+
 plt.show()
 
-#decision making regarding detection
-n = cv2.countNonZero(bit_mask_three)
-print n
-print frame.size
-if float(n)/float(frame.size) > 0.0005: #need to change
-   print "flame detected"
-else:
-   print "no flame"    
-
-#    if cv2.waitKey(1) & 0xFF == ord('q'):
-#        break
-
-#feed_cap.release()
