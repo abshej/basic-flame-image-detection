@@ -1,7 +1,9 @@
 # basic-flame-detection
-Detect flames in image frames 
+Detect flames in image frames using colorspace thresholding
 
-Image Frame should be given as the first argument after script names
+**using_colorspaces.py only uses thresholding on different colorspaces and not edge detection or other techniques
 
-Doesn't work with stock images of flames with dark or black backgrounds
-It will work with those images if you tweak the threshold values [might increase number of false positives]
+*Image Frame should be given as the first argument after script names
+
+[Does give false positives]
+Tweaking the threshold values or adding more ranges and bitwise logic to enable more accurate detection in varying types of images is encouraged
