@@ -21,8 +21,17 @@ framey = cv2.cvtColor(frame, cv2.COLOR_RGB2YCR_CB) #rgb to ycbcr conversion
 
 lower_y = np.array([230,120,60])
 upper_y = np.array([300,300,150])
-thres_mask_y = cv2.inRange(framey, lower_y, upper_y) #obtaining binary
-bit_mask_y = cv2.bitwise_and(framey, framey, mask= thres_mask_y) #obtaining masked image
+thres_mask_y1 = cv2.inRange(framey, lower_y, upper_y) #obtaining binary
+bit_mask_y1 = cv2.bitwise_and(framey, framey, mask= thres_mask_y1) 
+
+lower_y2 = np.array([170,180,30])
+upper_y2 = np.array([230,200,80])
+thres_mask_y2 = cv2.inRange(framey, lower_y2, upper_y2) #obtaining binary
+bit_mask_y2 = cv2.bitwise_and(framey, framey, mask= thres_mask_y2)
+
+thres_mask_y = cv2.bitwise_or(thres_mask_y1, thres_mask_y2) 
+
+#obtaining masked image
 
 #rgb thresholding
 lower_red = np.array([230,200,40])
@@ -47,9 +56,13 @@ c = 0
 if float(n)/float(frame.size) > 0.0005: #need to change
    c = 1
 
-plt.subplot(121), plt.imshow(frame)
+plt.subplot(141), plt.imshow(framey)
 plt.title('frame'), plt.xticks([]), plt.yticks([])
-plt.subplot(122),plt.imshow(bit_mask_three)
+plt.subplot(142),plt.imshow(bit_mask_three)
+plt.title('res_mix'), plt.xticks([]), plt.yticks([])
+plt.subplot(143), plt.imshow(thres_mask)
+plt.title('frame'), plt.xticks([]), plt.yticks([])
+plt.subplot(144),plt.imshow(thres_mask_y)
 plt.title('res_mix'), plt.xticks([]), plt.yticks([])
 if c==1:
     plt.figtext(.02, .02, "FLAME DETECTED\n", style='italic', bbox={'facecolor':'red', 'alpha':0.5, 'pad':10})
