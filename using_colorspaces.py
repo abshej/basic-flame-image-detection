@@ -56,14 +56,10 @@ c = 0
 if float(n)/float(frame.size) > 0.0005: #need to change
    c = 1
 
-plt.subplot(141), plt.imshow(framey)
+#displaying results
+plt.subplot(121), plt.imshow(framey)
 plt.title('frame'), plt.xticks([]), plt.yticks([])
-plt.subplot(142),plt.imshow(bit_mask_three)
-plt.title('res_mix'), plt.xticks([]), plt.yticks([])
-plt.subplot(143), plt.imshow(thres_mask)
-plt.title('frame'), plt.xticks([]), plt.yticks([])
-plt.subplot(144),plt.imshow(thres_mask_y)
-plt.title('res_mix'), plt.xticks([]), plt.yticks([])
+plt.subplot(122),plt.imshow(bit_mask_three)
 if c==1:
     plt.figtext(.02, .02, "FLAME DETECTED\n", style='italic', bbox={'facecolor':'red', 'alpha':0.5, 'pad':10})
 else:
