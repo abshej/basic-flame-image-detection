@@ -24,7 +24,7 @@ upper_y = np.array([300,300,150])
 thres_mask_y1 = cv2.inRange(framey, lower_y, upper_y) #obtaining binary
 bit_mask_y1 = cv2.bitwise_and(framey, framey, mask= thres_mask_y1) 
 
-lower_y2 = np.array([170,180,30])
+lower_y2 = np.array([130,180,30])
 upper_y2 = np.array([230,200,80])
 thres_mask_y2 = cv2.inRange(framey, lower_y2, upper_y2) #obtaining binary
 #bit_mask_y2 = cv2.bitwise_and(framey, framey, mask= thres_mask_y2)
