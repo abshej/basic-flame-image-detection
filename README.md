@@ -1,7 +1,9 @@
-# basic-flame-detection
+author: Avadhoot S
+*basic-flame-detection*
+
 Detect flames in image frames using image processing
 
-**using_colorspaces.py only uses thresholding on different colorspaces and not edge detection or other techniques
+**using_colorspaces.py uses thresholding on different colorspaces to detect possible flame pixels
 **colorspace_condition.py uses basic RGB and YUV color model condition for each pixel in an image to filter possible flame pixels
 
 *Image Frame should be given as the first argument after script names
