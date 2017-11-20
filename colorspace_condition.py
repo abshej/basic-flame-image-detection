@@ -1,3 +1,11 @@
+#author: Avadhoot S
+"""
+Basic conditions in many research papers for flame detection is 
+R > G > B in RGB color model
+and 
+Y > Cr > Cb in YUV color model
+this program checks both(AND logic) of conditions in an image
+"""
 import cv2
 import matplotlib.pyplot as plt
 import numpy as np
