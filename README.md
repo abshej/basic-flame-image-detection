@@ -1,4 +1,5 @@
 #author: Avadhoot S
+
 *basic-flame-detection*
 
 Detect flames in image frames using image processing
