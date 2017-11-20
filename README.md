@@ -1,4 +1,4 @@
-#author: Avadhoot S
+
 
 *basic-flame-detection*
 
