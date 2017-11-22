@@ -10,14 +10,14 @@ import time
 cam = PiCamera()
 cam.framerate = 6
 cam.resolution = (640, 480)
-raw_feed = PiRGBArray(camera, size=(640, 480))
+raw_feed = PiRGBArray(cam, size=(640, 480))
  
 #time needed for camera to adapt
 time.sleep(0.2) #increase or decrease depending on frame rate
 
  
 # capture frames
-for feed in camera.capture_continuous(raw_feed, format="rgb", use_video_port=True):
+for feed in cam.capture_continuous(raw_feed, format="rgb", use_video_port=True):
  frame = feed.array
  
  #median blurring frame
